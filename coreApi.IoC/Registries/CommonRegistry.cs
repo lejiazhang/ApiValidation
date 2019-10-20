@@ -20,7 +20,7 @@ namespace coreApi.IoC.Registries
                 .FromAssemblyOf<TType>()
                 .AddClasses()
                 .AsImplementedInterfaces()
-                .AsSelf() //needs for BC.ClientValidation.Core
+                .AsSelf() //needs for ClientValidation.Core
                 .WithTransientLifetime());
         }
     }
