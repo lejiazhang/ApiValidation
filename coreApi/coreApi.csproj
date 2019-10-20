@@ -9,8 +9,6 @@
     <PackageReference Include="FluentValidation" Version="8.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="structuremap" Version="4.7.1" />
-    <PackageReference Include="StructureMap.Microsoft.DependencyInjection" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,11 +9,16 @@
 
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator" Version="2.0.4" />
-    <PackageReference Include="structuremap" Version="4.7.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Scrutor" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\coreApi.Domain\coreApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DependencyResolution\" />
   </ItemGroup>
 
 </Project>

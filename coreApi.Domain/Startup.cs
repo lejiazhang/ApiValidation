@@ -1,5 +1,4 @@
 ﻿using ClientValidationGenerator.AspNetCore.Configuration;
-using coreApi.IoC.Registries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,6 @@ namespace coreApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCommonServices();
 
             services.AddClientValidationGenerator();
 
@@ -39,5 +37,6 @@ namespace coreApi
 
             app.UseMvc();
         }
+       
     }
 }

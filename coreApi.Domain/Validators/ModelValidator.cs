@@ -5,7 +5,7 @@ using System.Collections;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
-namespace coreApi.Domain.Validation
+namespace coreApi.Domain.Validators
 {
     public abstract class ModelValidator<TModel> : AbstractValidator<TModel>, IModelValidator<TModel>
          where TModel : class, new()

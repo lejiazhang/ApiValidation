@@ -1,17 +1,27 @@
-﻿using coreApi.Domain.Validation;
+﻿using coreApi.Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace coreApi.IoC.Registries
 {
-    public class CommonRegistry : StructureMap.Registry
+    public static class CommonRegistry
     {
-        public CommonRegistry()
+        public static void AddCommonServices(this IServiceCollection services)
         {
-            Scan(
-                scan =>
-                {
-                    scan.AddAllTypesOf(typeof(IModelValidator<>));
-                    scan.AddAllTypesOf(typeof(ICustomValidator<>));
-                });
+            //Services
+            RegisterDependenciesFromAssemblyOf<IFinancialProductService>(services);
+        }
+
+        private static void RegisterDependenciesFromAssemblyOf<TType>(IServiceCollection services)
+        {
+            services.Scan(scan => scan
+                .FromAssemblyOf<TType>()
+                .AddClasses()
+                .AsImplementedInterfaces()
+                .AsSelf() //needs for BC.ClientValidation.Core
+                .WithTransientLifetime());
         }
     }
 }

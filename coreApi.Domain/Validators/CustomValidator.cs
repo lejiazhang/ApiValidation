@@ -1,11 +1,12 @@
 ﻿using ClientValidationGenerator.Domain.Exceptions;
 using coreApi.Domain.Utils;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace coreApi.Domain.Validation
+namespace coreApi.Domain.Validators
 {
     public abstract class CustomValidator<T> : ICustomValidator<T>
          where T : class, new()

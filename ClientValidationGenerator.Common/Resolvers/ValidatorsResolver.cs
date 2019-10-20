@@ -22,12 +22,11 @@ namespace ClientValidationGenerator.Common.Resolvers
 
     internal class ValidatorsResolver
     {
-        private static readonly Regex BCAssemblyPattern = new Regex("^BC\\..*");
         internal static IList<Type> GetAllForType(Type type)
         {
 
 #if DEBUG
-            var types = Validators.Types;
+            var types = GetTypesFromAssemblies();
 #else
 			var types = GetTypesFromBCAssemblies();
 #endif
@@ -41,7 +40,7 @@ namespace ClientValidationGenerator.Common.Resolvers
         internal static IList<Type> GetAll()
         {
 #if DEBUG
-            return GetAll(Validators.Types);
+            return GetAll(GetTypesFromAssemblies());
 #else
 			return GetAll(GetTypesFromBCAssemblies());
 #endif
@@ -61,10 +60,9 @@ namespace ClientValidationGenerator.Common.Resolvers
                 .ToList();
         }
 
-        private static IList<Type> GetTypesFromBCAssemblies()
+        private static IList<Type> GetTypesFromAssemblies()
         {
             return AppDomain.CurrentDomain.GetAssemblies()
-                .Where(a => BCAssemblyPattern.IsMatch(a.FullName))
                 .SelectMany(a => a.GetTypes())
                 .ToList();
         }
