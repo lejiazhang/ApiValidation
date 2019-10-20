@@ -7,6 +7,10 @@ namespace coreApi.Domain.Validators.ModelValidators
         public FinancialProductQueryValidator()
         {
             ValidateRequired(p => p.AssetModelId);
+            ValidateRequired(p => p.CompanyId);
+            ValidateRequired(p => p.ModelYear);
+            ValidateRequired(p => p.NST);
+            ValidateRequired(p => p.PMSDealerNbr);
         }
     }
 }
