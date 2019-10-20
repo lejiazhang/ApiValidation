@@ -9,6 +9,7 @@
 
 Sapmle validation for client:
 
+```
 {
     "financialProductQuery": {
         "fields": {
@@ -79,3 +80,4 @@ Sapmle validation for client:
         }
     }
 }
+```
